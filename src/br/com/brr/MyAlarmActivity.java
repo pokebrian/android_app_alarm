@@ -6,6 +6,7 @@ import java.util.List;
 import android.app.Activity;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.media.ExifInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -37,6 +38,10 @@ public class MyAlarmActivity extends Activity {
         
         //setContentView(R.layout.main);
         setContentView(list);
+        startActivity(pm.getLaunchIntentForPackage("com.android.browser"));
+        
+        finish();
+        
     }
 }
 
