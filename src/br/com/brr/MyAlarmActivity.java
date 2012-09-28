@@ -1,9 +1,13 @@
 package br.com.brr;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.media.ExifInterface;
@@ -37,8 +41,27 @@ public class MyAlarmActivity extends Activity {
         
         
         //setContentView(R.layout.main);
+        
+        
         setContentView(list);
-        startActivity(pm.getLaunchIntentForPackage("com.android.browser"));
+        
+        //iniciando app
+        //startActivity(pm.getLaunchIntentForPackage("com.android.browser"));
+        
+        
+        
+        //inicio registrando um evento
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.SECOND, 30);
+        Intent intent = new Intent(this, AlarmReceiver.class);
+        intent.putExtra("alarm_message", "O'Doyle Rules");
+        PendingIntent sender = PendingIntent.getBroadcast(this, 192837, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        
+        AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
+        am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), sender);
+        //fim registrando um evento
+        
+        
         
         finish();
         
