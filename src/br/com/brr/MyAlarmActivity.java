@@ -3,15 +3,18 @@ package br.com.brr;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.media.ExifInterface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -45,8 +48,31 @@ public class MyAlarmActivity extends Activity {
         
         setContentView(list);
         
-        //iniciando app
+        //iniciando app externo
         //startActivity(pm.getLaunchIntentForPackage("com.android.browser"));
+        
+
+        //inicio preferences
+        SharedPreferences settings = getSharedPreferences("pref", 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("key1", "value1");
+        editor.putString("key2", "value2");
+        
+        
+        //---
+        Map<String,?> keys = PreferenceManager.getDefaultSharedPreferences(this).getAll();
+        for(Map.Entry<String,?> entry : keys.entrySet()){
+            Log.d("map values",entry.getKey() + ": " + 
+                                   entry.getValue().toString());            
+        }
+        
+        //http://code.google.com/p/phxandroid/source/browse/trunk/phxandroid-sharedprefs-one/src/org/phxandroid/sharedprefs/PrefUtil.java?r=8
+        //http://developer.android.com/guide/topics/data/data-storage.html
+        
+        //fim preferences
+        
+        
+        //getSharedPreferences(pref, 0);
         
         
         
