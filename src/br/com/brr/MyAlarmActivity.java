@@ -56,7 +56,7 @@ public class MyAlarmActivity extends Activity {
         SharedPreferences settings = getSharedPreferences("pref", 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString("key1", "value1");
-        editor.putString("key2", "value2");
+        editor.putString("key2", "value2"); 
         
         
         //---
