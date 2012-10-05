@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2012-10-03" view-index="0" gantt-divider-location="409" resource-divider-location="300" version="2.0">
+<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2012-10-02" view-index="0" gantt-divider-location="409" resource-divider-location="300" version="2.0">
     <description/>
     <view zooming-state="default:2" id="gantt-chart"/>
     <view id="resource-table">
-        <field id="0" name="Nome" width="56" order="0"/>
-        <field id="1" name="Função" width="43" order="1"/>
+        <field id="0" name="Nome" width="52" order="0"/>
+        <field id="1" name="Função" width="47" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -51,10 +51,7 @@
     <resources>
         <resource id="0" name="Brian" function="Default:1" contacts="" phone=""/>
     </resources>
-    <allocations>
-        <allocation task-id="0" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
-        <allocation task-id="7" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
-    </allocations>
+    <allocations/>
     <vacations/>
     <taskdisplaycolumns>
         <displaycolumn property-id="tpd2" order="-1" width="75" visible="false"/>
