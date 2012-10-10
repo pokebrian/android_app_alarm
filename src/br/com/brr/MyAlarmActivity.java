@@ -16,7 +16,9 @@ import android.media.ExifInterface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 public class MyAlarmActivity extends Activity {
@@ -27,69 +29,89 @@ public class MyAlarmActivity extends Activity {
         
         final PackageManager pm = getPackageManager();
         
-        ListView list = new ListView(this);
+        setContentView(R.layout.alarmelst);
         
         
-        List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+        Button addButton = (Button) findViewById(R.id.addButton);
+        addButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				//Intent intent = new Intent(MyAlarmActivity.this, );
+				MyAlarmActivity.this.setContentView(R.layout.alarmcad);
+				
+				Log.d("addButton", "Click!");
+			}
+		});
         
-        List<String> names = new ArrayList<String>();
-        for (ApplicationInfo packageInfo: packages) {
-        	Log.d("TAG", "installed package: " + packageInfo.packageName);
-        	names.add(packageInfo.packageName);
+        String exemplo = "";
+        
+        if(!exemplo.equals("")){
+	        ListView list = new ListView(this);
+	        
+	        
+	        List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+	        
+	        List<String> names = new ArrayList<String>();
+	        for (ApplicationInfo packageInfo: packages) {
+	        	Log.d("TAG", "installed package: " + packageInfo.packageName);
+	        	names.add(packageInfo.packageName);
+	        }
+	
+	        //String[] names = new String[] { "Beatles", "Credeence", "Jannis Joplin", "Dokken", "Black Sabath", "Pink Floyd", "The Kinks", "The Verve"};
+	        list.setAdapter(new ArrayAdapter<String>(this,
+	        		android.R.layout.simple_list_item_checked, names));
+	        
+	        
+	        //setContentView(R.layout.main);
+	        
+	        
+	        setContentView(list);
+	        
+	        //iniciando app externo
+	        //startActivity(pm.getLaunchIntentForPackage("com.android.browser"));
+	        
+	
+	        //inicio preferences
+	        SharedPreferences settings = getSharedPreferences("pref", 0);
+	        SharedPreferences.Editor editor = settings.edit();
+	        editor.putString("key1", "value1");
+	        editor.putString("key2", "value2");
+	        
+	        
+	        //---
+	        Map<String,?> keys = PreferenceManager.getDefaultSharedPreferences(this).getAll();
+	        for(Map.Entry<String,?> entry : keys.entrySet()){
+	            Log.d("map values",entry.getKey() + ": " + 
+	                                   entry.getValue().toString());            
+	        }
+	        
+	        //http://code.google.com/p/phxandroid/source/browse/trunk/phxandroid-sharedprefs-one/src/org/phxandroid/sharedprefs/PrefUtil.java?r=8
+	        //http://developer.android.com/guide/topics/data/data-storage.html
+	        
+	        //fim preferences
+	        
+	        
+	        //getSharedPreferences(pref, 0);
+	        
+	        
+	        
+	        //inicio registrando um evento
+	        Calendar cal = Calendar.getInstance();
+	        cal.add(Calendar.SECOND, 30);
+	        Intent intent = new Intent(this, AlarmReceiver.class);
+	        intent.putExtra("alarm_message", "O'Doyle Rules");
+	        PendingIntent sender = PendingIntent.getBroadcast(this, 192837, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+	        
+	        AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
+	        am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), sender);
+	        //fim registrando um evento
+	        
+	        
+	        
+	        finish();
         }
-
-        //String[] names = new String[] { "Beatles", "Credeence", "Jannis Joplin", "Dokken", "Black Sabath", "Pink Floyd", "The Kinks", "The Verve"};
-        list.setAdapter(new ArrayAdapter<String>(this,
-        		android.R.layout.simple_list_item_checked, names));
-        
-        
-        //setContentView(R.layout.main);
-        
-        
-        setContentView(list);
-        
-        //iniciando app externo
-        //startActivity(pm.getLaunchIntentForPackage("com.android.browser"));
-        
-
-        //inicio preferences
-        SharedPreferences settings = getSharedPreferences("pref", 0);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString("key1", "value1");
-        editor.putString("key2", "value2");
-        
-        
-        //---
-        Map<String,?> keys = PreferenceManager.getDefaultSharedPreferences(this).getAll();
-        for(Map.Entry<String,?> entry : keys.entrySet()){
-            Log.d("map values",entry.getKey() + ": " + 
-                                   entry.getValue().toString());            
-        }
-        
-        //http://code.google.com/p/phxandroid/source/browse/trunk/phxandroid-sharedprefs-one/src/org/phxandroid/sharedprefs/PrefUtil.java?r=8
-        //http://developer.android.com/guide/topics/data/data-storage.html
-        
-        //fim preferences
-        
-        
-        //getSharedPreferences(pref, 0);
-        
-        
-        
-        //inicio registrando um evento
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.SECOND, 30);
-        Intent intent = new Intent(this, AlarmReceiver.class);
-        intent.putExtra("alarm_message", "O'Doyle Rules");
-        PendingIntent sender = PendingIntent.getBroadcast(this, 192837, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        
-        AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
-        am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), sender);
-        //fim registrando um evento
-        
-        
-        
-        finish();
         
     }
 }
