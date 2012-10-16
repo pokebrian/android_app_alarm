@@ -38,8 +38,11 @@ public class MyAlarmActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				//Intent intent = new Intent(MyAlarmActivity.this, );
-				MyAlarmActivity.this.setContentView(R.layout.alarmcad);
+				//Intent intent = new Intent("br.com.brr.AlarmCad");
+				Intent intent = new Intent(MyAlarmActivity.this, AlarmCad.class);
+				MyAlarmActivity.this.startActivity(intent);
+				
+				//MyAlarmActivity.this.setContentView(R.layout.alarmcad);
 				
 				Log.d("addButton", "Click!");
 			}

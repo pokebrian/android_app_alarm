@@ -83,7 +83,8 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:text="Dias da Semana:"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+	            android:layout_span="2" />
 		</TableRow>
 		<TableRow
             android:id="@+id/tableRow6"
@@ -93,12 +94,14 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:layout_span="2" >
-	
+	
 	            <ToggleButton
 	                android:id="@+id/toggleButtonSunday"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
-	                android:text="ToggleButton" android:textOff="D" android:textOn="D"/>	
+	                android:text="ToggleButton"
+	                android:textOff="D"
+	                android:textOn="D" />
 	
 	            <ToggleButton
 	                android:id="@+id/toggleButtonMonday"
@@ -148,7 +151,8 @@
 	            android:id="@+id/checkBox1"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:text="Repetir Semanalmente" />
+	            android:text="Repetir Semanalmente"
+	            android:layout_span="2" />
         </TableRow>
 
         <TableRow
@@ -160,16 +164,20 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:text="Horário"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+	            android:layout_span="2" />
 		</TableRow>
 		<TableRow
             android:id="@+id/tableRow9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
-	        <TimePicker
-	            android:id="@+id/timePicker1"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content" />
+
+			<TimePicker
+			    android:id="@+id/timePicker1"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_span="2" />
+
         </TableRow>
 
     </TableLayout>
