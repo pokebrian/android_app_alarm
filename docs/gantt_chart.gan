@@ -3,8 +3,8 @@
     <description/>
     <view zooming-state="default:2" id="gantt-chart"/>
     <view id="resource-table">
-        <field id="0" name="Nome" width="52" order="0"/>
-        <field id="1" name="Função" width="47" order="1"/>
+        <field id="0" name="Nome" width="50" order="0"/>
+        <field id="1" name="Função" width="49" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -32,19 +32,19 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="10" name="interface" color="#8cb6ce" meeting="false" start="2012-10-03" duration="2" complete="0" expand="true">
+        <task id="10" name="interface" color="#8cb6ce" meeting="false" start="2012-10-03" duration="2" complete="100" expand="true">
             <depend id="12" type="2" difference="0" hardness="Strong"/>
-            <task id="8" name="pesquisa interface" color="#8cb6ce" meeting="false" start="2012-10-03" duration="1" complete="0" expand="true">
+            <task id="8" name="pesquisa interface" color="#8cb6ce" meeting="false" start="2012-10-03" duration="1" complete="100" expand="true">
                 <depend id="0" type="2" difference="0" hardness="Strong"/>
                 <depend id="7" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="0" name="tela01" color="#8cb6ce" meeting="false" start="2012-10-04" duration="1" complete="0" expand="true"/>
-            <task id="7" name="tela02" color="#8cb6ce" meeting="false" start="2012-10-04" duration="1" complete="0" expand="true"/>
+            <task id="0" name="tela01" color="#8cb6ce" meeting="false" start="2012-10-04" duration="1" complete="100" expand="true"/>
+            <task id="7" name="tela02" color="#8cb6ce" meeting="false" start="2012-10-04" duration="1" complete="100" expand="true"/>
         </task>
         <task id="12" name="lógica" color="#8cb6ce" meeting="false" start="2012-10-05" duration="1" complete="0" expand="true">
+            <task id="15" name="salvar dados" color="#8cb6ce" meeting="false" start="2012-10-05" duration="1" complete="0" expand="true"/>
             <task id="17" name="lista de alarmes" color="#8cb6ce" meeting="false" start="2012-10-05" duration="1" complete="0" expand="true"/>
             <task id="13" name="recorrencia" color="#8cb6ce" meeting="false" start="2012-10-05" duration="1" complete="0" expand="true"/>
-            <task id="15" name="salvar dados" color="#8cb6ce" meeting="false" start="2012-10-05" duration="1" complete="0" expand="true"/>
             <task id="16" name="tocar musica" color="#8cb6ce" meeting="false" start="2012-10-05" duration="1" complete="0" expand="true"/>
         </task>
     </tasks>

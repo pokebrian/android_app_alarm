@@ -15,12 +15,13 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout1=0x7f050000;
-        public static final int addButton=0x7f05001e;
+        public static final int addButton=0x7f05001f;
         public static final int checkBox1=0x7f050018;
         public static final int editText1=0x7f050009;
         public static final int editText2=0x7f050003;
-        public static final int listView1=0x7f05001d;
-        public static final int removeButton=0x7f05001f;
+        public static final int listView1=0x7f05001e;
+        public static final int removeButton=0x7f050020;
+        public static final int saveButton=0x7f05001d;
         public static final int seekBar1=0x7f05000c;
         public static final int spinner1=0x7f050006;
         public static final int tableRow1=0x7f050001;
