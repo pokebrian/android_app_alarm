@@ -5,6 +5,9 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
+import br.com.brr.model.Alarm;
+import br.com.brr.tools.FileManager;
+
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -31,11 +34,22 @@ public class MyAlarmActivity extends Activity {
         
         setContentView(R.layout.alarmelst);
         
+        ListView listView = (ListView) findViewById(R.id.listView1);
+        
+        List<Alarm> alarms = FileManager.getAlarmList(MyAlarmActivity.this, null);
+        
+        ArrayAdapter<Alarm> adapter = new ArrayAdapter<Alarm>(this, android.R.layout.simple_list_item_1, alarms); 
+        
+//        for(Alarm a: alarms){
+//        	
+//        }
+        
+        listView.setAdapter(adapter);
+        
         
         Button addButton = (Button) findViewById(R.id.addButton);
         addButton.setOnClickListener(new View.OnClickListener() {
 			
-			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				//Intent intent = new Intent("br.com.brr.AlarmCad");

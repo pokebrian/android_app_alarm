@@ -18,7 +18,6 @@ public final class R {
         public static final int addButton=0x7f05001f;
         public static final int checkBox1=0x7f050018;
         public static final int editText1=0x7f050009;
-        public static final int editText2=0x7f050003;
         public static final int listView1=0x7f05001e;
         public static final int removeButton=0x7f050020;
         public static final int saveButton=0x7f05001d;
@@ -47,6 +46,7 @@ public final class R {
         public static final int toggleButtonThursday=0x7f050014;
         public static final int toggleButtonTuesday=0x7f050012;
         public static final int toggleButtonWednesday=0x7f050013;
+        public static final int txtNome=0x7f050003;
     }
     public static final class layout {
         public static final int alarmcad=0x7f030000;

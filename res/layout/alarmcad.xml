@@ -20,12 +20,13 @@
                 android:layout_height="wrap_content"
                 android:text="Nome:"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
-
+
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/txtNome"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:ems="10" android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:ems="10" />
 
         </TableRow>
 
