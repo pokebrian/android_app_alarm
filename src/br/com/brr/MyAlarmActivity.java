@@ -38,11 +38,9 @@ public class MyAlarmActivity extends Activity {
         
         List<Alarm> alarms = FileManager.getAlarmList(MyAlarmActivity.this, null);
         
-        ArrayAdapter<Alarm> adapter = new ArrayAdapter<Alarm>(this, android.R.layout.simple_list_item_1, alarms); 
+        //ArrayAdapter<Alarm> adapter = new ArrayAdapter<Alarm>(this, android.R.layout.simple_list_item_1, alarms); 
         
-//        for(Alarm a: alarms){
-//        	
-//        }
+        AlarmAdapter adapter = new AlarmAdapter(MyAlarmActivity.this, alarms);
         
         listView.setAdapter(adapter);
         
