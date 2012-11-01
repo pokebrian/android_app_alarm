@@ -42,9 +42,9 @@ public class AlarmAdapter extends BaseAdapter {
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.alarmelst, null);
+			convertView = mInflater.inflate(R.layout.alarm_adapter_item, null);
 			holder = new ViewHolder();
-			holder.tvName = (TextView) convertView.findViewById(R.id.txtNome);
+			holder.tvName = (TextView) convertView.findViewById(R.id.txtName);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();

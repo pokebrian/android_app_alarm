@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -43,6 +44,19 @@ public class MyAlarmActivity extends Activity {
         AlarmAdapter adapter = new AlarmAdapter(MyAlarmActivity.this, alarms);
         
         listView.setAdapter(adapter);
+        
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+			public void onItemClick(AdapterView<?> parent, View view, int position,
+					long id) {
+				// TODO Auto-generated method stub
+				int alarmId = ((Alarm)parent.getAdapter().getItem(position)).getId();
+				Intent intent = new Intent(MyAlarmActivity.this, AlarmCad.class);
+				intent.putExtra("alarm_id", alarmId);
+				MyAlarmActivity.this.startActivity(intent);
+				
+			}
+		});
         
         
         Button addButton = (Button) findViewById(R.id.addButton);
@@ -128,6 +142,20 @@ public class MyAlarmActivity extends Activity {
 	        finish();
         }
         
+    }
+    
+    @Override
+    protected void onResume(){
+    	super.onResume();
+    	
+    	
+        List<Alarm> alarms = FileManager.getAlarmList(MyAlarmActivity.this, null);
+        
+        AlarmAdapter adapter = new AlarmAdapter(MyAlarmActivity.this, alarms);
+        
+        ListView listView = (ListView) findViewById(R.id.listView1);
+        listView.setAdapter(adapter);
+    	
     }
 }
 

@@ -74,8 +74,12 @@ public class FileManager {
 			BufferedReader bufferedReader = new BufferedReader(isr);
 			String line;
 			while((line = bufferedReader.readLine()) != null){
+				String name = "";
 				String[] dados = line.split(";");
-				alarms.add(new Alarm(Integer.valueOf(dados[0]), dados[1]));
+				if (dados.length > 1) {
+					name = dados[1];
+				}
+				alarms.add(new Alarm(Integer.valueOf(dados[0]), name));
 				
 				//Log.d("file reader", line);
 			}
