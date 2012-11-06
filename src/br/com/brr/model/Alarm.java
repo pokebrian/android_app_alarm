@@ -1,5 +1,7 @@
 package br.com.brr.model;
 
+import br.com.brr.tools.StringManager;
+
 public class Alarm {
 	private int id;
 	private String name;
@@ -9,8 +11,8 @@ public class Alarm {
 	}
 	public Alarm(int id, String name) {
 		super();
-		this.id = id;
-		this.name = name;
+		setId(id);
+		setName(name);
 	}
 	public int getId() {
 		return id;
@@ -19,10 +21,10 @@ public class Alarm {
 		this.id = id;
 	}
 	public String getName() {
-		return name;
+		return StringManager.parseShowFormat(name);
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.name = StringManager.parseStorageFormat(name);
 	}
 	
 	

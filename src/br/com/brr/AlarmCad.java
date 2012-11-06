@@ -51,7 +51,7 @@ public class AlarmCad extends Activity {
 
 				String name = ((EditText)findViewById(R.id.txtNome)).getText().toString();
 				Alarm alarm = new Alarm(alarmId, name);
-				FileManager.saveAlarm(AlarmCad.this, alarm);
+				alarmId = FileManager.saveAlarm(AlarmCad.this, alarm);
 				
 				//Log.d("saveButton", "Click!");
 			}

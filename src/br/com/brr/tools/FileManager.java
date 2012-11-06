@@ -19,7 +19,7 @@ public class FileManager {
 	
 	private FileManager(){}
 	
-	public static void saveAlarm(Context context, Alarm alarm){
+	public static int saveAlarm(Context context, Alarm alarm){
 		List<Alarm> alarms = getAlarmList(context, FILENAME);
 		
 		int lastId = 0;
@@ -32,11 +32,14 @@ public class FileManager {
 		}
 		
 		if(alarm.getId() == 0){
-			alarm.setId(lastId + 1);
+			lastId++;
+			alarm.setId(lastId);
 			sb.append(alarm.getId()).append(";").append(alarm.getName()).append("\n");
 		}
 		
 		saveFile(context, FILENAME, sb.toString());
+		
+		return lastId;
 	}
 	
 	public static Alarm getAlarmById(Context context, int id){
