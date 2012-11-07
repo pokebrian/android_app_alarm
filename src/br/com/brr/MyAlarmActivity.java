@@ -37,7 +37,13 @@ public class MyAlarmActivity extends Activity {
         
         ListView listView = (ListView) findViewById(R.id.listView1);
         
-        List<Alarm> alarms = FileManager.getAlarmList(MyAlarmActivity.this, null);
+        List<Alarm> alarms = null;
+        try {
+        	alarms = FileManager.getAlarmList(MyAlarmActivity.this, null);
+        } catch (Exception e) {
+        	e.printStackTrace();
+        	alarms = new ArrayList<Alarm>();
+        }
         
         //ArrayAdapter<Alarm> adapter = new ArrayAdapter<Alarm>(this, android.R.layout.simple_list_item_1, alarms); 
         
@@ -149,7 +155,14 @@ public class MyAlarmActivity extends Activity {
     	super.onResume();
     	
     	
-        List<Alarm> alarms = FileManager.getAlarmList(MyAlarmActivity.this, null);
+        List<Alarm> alarms;
+		try {
+			alarms = FileManager.getAlarmList(MyAlarmActivity.this, null);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			alarms = new ArrayList<Alarm>();
+		}
         
         AlarmAdapter adapter = new AlarmAdapter(MyAlarmActivity.this, alarms);
         

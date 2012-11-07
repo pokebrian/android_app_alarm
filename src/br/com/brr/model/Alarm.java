@@ -21,12 +21,24 @@ public class Alarm {
 		this.id = id;
 	}
 	public String getName() {
-		return StringManager.parseShowFormat(name);
+		return name;
 	}
 	public void setName(String name) {
-		this.name = StringManager.parseStorageFormat(name);
+		this.name = name;
 	}
 	
+	@Override
+	public String toString() {
+		return id + ";" + StringManager.parseStorageFormat(name) + "\n";
+	}
 	
+	public static Alarm fromString(String str) throws Exception{
+		String[] dados = str.split(";");
+
+		if (dados.length == 2)
+			return new Alarm(Integer.valueOf(dados[0]), StringManager.parseShowFormat(dados[1]));
+		else
+			throw new Exception("Falha ao recuperar o alarme do arquivo, strint: \"" + str + "\"");
+	}
 
 }
